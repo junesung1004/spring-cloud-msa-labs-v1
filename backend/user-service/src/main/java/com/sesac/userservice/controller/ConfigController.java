@@ -1,4 +1,4 @@
-package controller;
+package com.sesac.userservice.controller;
 
 import java.util.HashMap;
 import java.util.Map;

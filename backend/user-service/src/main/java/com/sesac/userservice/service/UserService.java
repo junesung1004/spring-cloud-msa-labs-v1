@@ -1,11 +1,11 @@
-package service;
+package com.sesac.userservice.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import entity.User;
+import com.sesac.userservice.entity.User;
 import lombok.RequiredArgsConstructor;
-import repository.UserRepository;
+import com.sesac.userservice.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor

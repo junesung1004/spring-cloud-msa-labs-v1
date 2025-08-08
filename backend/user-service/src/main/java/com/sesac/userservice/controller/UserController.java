@@ -1,4 +1,4 @@
-package controller;
+package com.sesac.userservice.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-import entity.User;
+import com.sesac.userservice.entity.User;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import service.UserService;
+import com.sesac.userservice.service.UserService;
 
 @RestController
 @RequestMapping("/users")
