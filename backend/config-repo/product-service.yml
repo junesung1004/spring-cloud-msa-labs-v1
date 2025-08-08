@@ -2,6 +2,6 @@ server:
   port: 8082
 spring:
   application:
-    name: product-com.sesac.userservice.service
+    name: product-service
   datasource:
     url: jdbc:mysql://localhost:3307/product_service_db
