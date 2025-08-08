@@ -1,0 +1,6 @@
+// 멀티 프로젝트 관리할 때 위 파일로 하면 인식을 자동으로 해준다.
+
+include 'product-service'
+include 'user-service'
+include 'order-service'
+include 'config-server'
