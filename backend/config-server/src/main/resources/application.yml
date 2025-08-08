@@ -1,14 +1,14 @@
 server:
   port: 8888
 spring:
-  profiles:
-    active: native
   application:
     name: config-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
         native:
-          search-locations:
+          search-locations: file:///${user.dir}/backend/config-repo
 #            - file://C:\sasac\spring-cloud-msa-labs-v1\backend\config-repo\
-            - .\backend\config-repo\
+#            - .\backend\config-repo\

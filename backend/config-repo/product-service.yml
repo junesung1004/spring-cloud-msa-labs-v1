@@ -1,7 +1,7 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
-    name: user-service
+    name: product-service
   datasource:
-    url: jdbc:mysql://localhost:3307/user_service_db
+    url: jdbc:mysql://localhost:3307/product_service_db
