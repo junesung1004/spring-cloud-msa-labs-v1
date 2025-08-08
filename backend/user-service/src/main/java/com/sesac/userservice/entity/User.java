@@ -1,4 +1,4 @@
-package entity;
+package com.sesac.userservice.entity;
 
 import java.time.LocalDateTime;
 

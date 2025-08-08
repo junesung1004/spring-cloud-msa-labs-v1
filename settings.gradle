@@ -1,1 +1,1 @@
-include 'user-service', 'order-service', 'product-service'
+include 'user-com.sesac.userservice.service', 'order-com.sesac.userservice.service', 'product-com.sesac.userservice.service'
