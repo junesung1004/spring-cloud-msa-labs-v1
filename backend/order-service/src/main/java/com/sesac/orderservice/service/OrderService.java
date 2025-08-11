@@ -2,6 +2,7 @@ package com.sesac.orderservice.service;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.sesac.orderservice.client.ProductServiceClient;
 import com.sesac.orderservice.client.UserServiceClient;
@@ -55,5 +56,10 @@ public class OrderService {
         orderRepository.save(order);
         return order;
 
+    }
+
+
+    public List<Order> getOrdersByUserId(Long userId) {
+        return orderRepository.findByUserIdOrderByCreatedAtDesc(userId);
     }
 }
