@@ -1,9 +1,12 @@
 package com.sesac.orderservice.controller;
 
+import java.util.List;
+
 import com.sesac.orderservice.dto.OrderRequestDto;
 import com.sesac.orderservice.entity.Order;
 import com.sesac.orderservice.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -41,5 +44,20 @@ public class OrderController {
         }catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+
+    @GetMapping("/my")
+    @Operation(summary = "내 주문 목록", description = "로그인한 사용자의 주문 목록을 확인합니다.")
+    public ResponseEntity<List<Order>> getMyOrders(HttpServletRequest request) {
+
+        // API Gateway에서 전달한 X-User-Id 헤더에서 사용자 ID 추출
+        String userIdHeader = request.getHeader("X-User-Id");
+        if (userIdHeader == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        List<Order> orders = orderService.getOrdersByUserId(Long.parseLong(userIdHeader));
+        return ResponseEntity.ok(orders);
     }
 }
