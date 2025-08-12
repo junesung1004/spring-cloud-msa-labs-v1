@@ -10,8 +10,11 @@ import com.sesac.orderservice.client.dto.ProductDto;
 import com.sesac.orderservice.client.dto.UserDto;
 import com.sesac.orderservice.dto.OrderRequestDto;
 import com.sesac.orderservice.entity.Order;
+import com.sesac.orderservice.facade.UserServiceFacade;
 import com.sesac.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,8 +24,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final UserServiceClient userServiceClient;
+    // private final UserServiceClient userServiceClient;
     private final ProductServiceClient productServiceClient;
+    private final UserServiceFacade userServiceFacade;
 
     public Order findById(Long id) {
         return orderRepository.findById(id).orElseThrow(
@@ -34,9 +38,8 @@ public class OrderService {
     // 주문 생성 ( 고객이 주문했을 때 )
     @Transactional
     public Order createOrder(OrderRequestDto request) {
-
         // 사용자 정보 가져오기
-        UserDto user = userServiceClient.getUserById(request.getUserId());
+        UserDto user = userServiceFacade.getUserWithFallback(request.getUserId());
 
         if(user == null) throw new RuntimeException("User not found");
 
