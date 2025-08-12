@@ -38,7 +38,7 @@ dependencies {
 
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.opentelemetry:opentelemetry-exporter-zipkin'
-    implementation 'io.github.openfeign:feign-micromet
+    implementation 'io.github.openfeign:feign-micromet'
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
