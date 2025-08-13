@@ -38,7 +38,10 @@ dependencies {
 
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.opentelemetry:opentelemetry-exporter-zipkin'
-    implementation 'io.github.openfeign:feign-micromet'
+    implementation 'io.github.openfeign:feign-micrometer'
+
+    // rabbitmq
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
