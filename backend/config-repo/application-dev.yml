@@ -4,6 +4,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  rabbitmq: # connection 연결
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
 
 logging:
   pattern:
@@ -38,3 +43,12 @@ otel:
     attributes:
       service.name: ${spring.application.name}
 
+order:
+  event:
+    exchange: order.exchange
+    queue:
+      notification: order.notification.queue  # 알림 큐
+      inventory: order.inventory.queue   # 재고 큐
+    routing-key:
+      notification: order.notification
+      inventory: order.inventory
